@@ -1,0 +1,41 @@
+:root{
+    --color1 : rgb(255, 230, 184);
+    --color2 : rgb(255, 180, 41);
+}
+
+*,*::after,*::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#root{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.box{
+    background-image: linear-gradient(to bottom right,var(--color1),var(--color2));
+    height: 40vh;
+}
+
+.svg-img{
+    width: 40px;
+    background-color: orange;
+}
+
+h1{
+    line-height: 1.6rem;
+    letter-spacing: 5px;
+}
+
+@media screen and ( min-width : 480px ) {
+    h1{
+        font-size: 3rem;
+        line-height: 2.5rem;
+        /* letter-spacing: 5px; */
+    }
+    .svg-img{
+        width: 60px;
+    }
+}
