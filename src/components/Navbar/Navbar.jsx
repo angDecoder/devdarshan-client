@@ -3,9 +3,12 @@ import hamburger from '../../assets/hamburger.svg';
 import { NavLink } from 'react-router-dom';
 import cross from '../../assets/cross.svg';
 import './Navbar.css';
+import { useSelector } from 'react-redux';
 // import { createLogger } from 'vite';
 
 function Navbar() {
+
+  const { username,status } = useSelector(state=>state.user);
 
   const toggleNav = ()=>{
     // console.log('clicked');
@@ -27,7 +30,12 @@ function Navbar() {
         <NavLink className={'nav__link'}  to={'/'}>Contact Us</NavLink>
         <NavLink className={'nav__link'}  to={'/'}>Blog</NavLink>
         <NavLink  className={'nav__link'} to={'/'}>Temples</NavLink>
-        <NavLink className={'nav__link'}  to={'/'}>Login/Register</NavLink>
+        {
+          status==='logged out' ? 
+            <NavLink className={'nav__link'}  to={'/login'}>Login/Register</NavLink> :
+              status==='logged in' ?
+                <p className='nav__link'>Logout {username}</p> : <p className='nav__link'>Loading</p>
+        }
       </div>
     </div>
   )

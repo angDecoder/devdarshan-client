@@ -1,0 +1,44 @@
+.Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    margin-top: 3em;
+    background-image: linear-gradient(beige, rgb(255, 230, 184));
+    padding-block: 2em;
+    border: 2px solid black;
+}
+
+.Form__btn {
+    margin-inline: 0.3em;
+    padding-block: 0.4em;
+    width: 30vw;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0.4em;
+    color: white;
+}
+
+.Form__btn.submit {
+    background-color: rgb(29, 200, 29);
+}
+
+.Form__btn.clear {
+    background-color: red;
+}
+.Form > .nav__link{
+    color : rgb(42, 54, 67);
+}
+
+@media screen and (min-width : 480px) {
+    .Form {
+        width: 85vw;
+        margin-inline: auto;
+        padding: 4em 0em;
+        gap: 1.5em;
+    }
+
+    .Form__btn {
+        font-size: 2rem;
+    }
+}

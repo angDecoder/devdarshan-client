@@ -12,6 +12,7 @@
 #root{
     overflow: hidden;
     background-color: rgb(255, 219, 152);
+    min-height: 100vh;
 }
 
 .box{
@@ -45,6 +46,22 @@ h2{
     margin-bottom: 1rem;
 }
 
+.input{
+    width: 40vw;
+    font-size: 1.3rem;
+    padding : 0.2em 0.3em;
+    border-radius: 0.4em;
+    transition-property: width;
+    transition-duration: 300ms;
+    background-color: beige;
+}
+.input:focus{
+    width: 70vw;
+    box-shadow: 5px 8px 10px black;
+}
+.input::placeholder{
+    text-align: center;
+}
 
 @media screen and ( min-width : 480px ) {
     h1{
@@ -60,5 +77,13 @@ h2{
     }
     h2{
         font-size: 3rem;
+    }
+    .input{
+        width: 40vw;
+        padding : 0.4em 0.3em;
+        font-size: 2rem;
+    }
+    .input:focus{
+        width: 65vw;
     }
 }

@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import temples from '../../assets/OnboardedTemples';
+import { autologinApi,loginUserApi } from '../../api/User';
 
 import './Home.css';
 import right from '../../assets/right.svg';
@@ -16,6 +17,7 @@ function Home() {
   const scrollToPrev = () => {
     setCardNo((cardNo - 1 + temples.length) % temples.length);
   }
+
 
   useEffect(() => {
     const slider = document.getElementById('Home__slide');
@@ -47,6 +49,9 @@ function Home() {
         </div>
         <p>{cardNo + 1}/{temples.length}</p>
       </section>
+
+      <button onClick={()=>autologinApi()}>auto</button>
+      <button onClick={()=>loginUserApi({email : 'angshudas012@gmail.com',password : '1234'})}>login</button>
     </div>
   )
 }
