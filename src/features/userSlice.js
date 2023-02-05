@@ -86,6 +86,9 @@ const userSlice = createSlice({
                 state.status = 'logged out';
                 alert('logged out user');
             })
+            .addCase(registerUser.rejected,(state)=>{
+                state.status = 'logged out';
+            })
 
     }
 });

@@ -13,6 +13,7 @@ function Home() {
   const scrollToNext = () => {
     setCardNo((cardNo + 1) % temples.length)
   }
+  // console.log(process.env);
 
   const scrollToPrev = () => {
     setCardNo((cardNo - 1 + temples.length) % temples.length);

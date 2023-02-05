@@ -1,7 +1,9 @@
 import axios from 'axios';
+import React from 'react';
 
 const instance  = axios.create({
-    baseURL : 'http://localhost:3500'
+    baseURL : `https://devdarshan-server.onrender.com`
+    // baseURL : 'localhost'
 });
 
 export const loginUserApi = async ({email,password,thunkApi})=>{
