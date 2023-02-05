@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
     loginUserApi,
     autologinApi,
-    logoutUserApi
+    logoutUserApi,
+    registerUserApi
 } from '../api/User';
 
 const initialState = {
@@ -25,6 +26,11 @@ export const logoutUser = createAsyncThunk(
 export const autologin = createAsyncThunk(
     'user/autologin',
     autologinApi
+)
+
+export const registerUser = createAsyncThunk(
+    'user/register',
+    registerUserApi
 )
 
 const userSlice = createSlice({
@@ -68,6 +74,12 @@ const userSlice = createSlice({
             })
             .addCase(autologin.rejected,(state)=>{
                 state.status = 'logged out';
+            })
+            .addCase(registerUser.fulfilled,()=>{
+                alert('user regitered');
+            })
+            .addCase(registerUser.pending,(state)=>{
+                state.status = 'loading';
             })
             
     }

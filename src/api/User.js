@@ -33,6 +33,20 @@ export const autologinApi = async()=>{
     }
 }
 
+export const registerUserApi = async({ email,password,username })=>{
+    try {
+        const res = await instance.post('http://localhost:3500/user/register',{
+            username,
+            password,
+            email
+        });
+
+        return {};
+    } catch (error) {
+        alert('some error occured');
+    }
+}
+
 export const logoutUserApi = ()=>{
 
 }
