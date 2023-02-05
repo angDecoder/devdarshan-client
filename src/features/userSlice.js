@@ -7,10 +7,10 @@ import {
 } from '../api/User';
 
 const initialState = {
-    username : '',
-    email : '',
-    accessToken : '',
-    status : 'logged out'
+    username: '',
+    email: '',
+    accessToken: '',
+    status: 'logged out'
 }
 
 export const loginUser = createAsyncThunk(
@@ -34,54 +34,59 @@ export const registerUser = createAsyncThunk(
 )
 
 const userSlice = createSlice({
-    name : 'user',
+    name: 'user',
     initialState,
-    reducers : {
-        updateAccessToken : (state,{ payload })=>{
+    reducers: {
+        updateAccessToken: (state, { payload }) => {
             state.accessToken = payload.accessToken;
         }
     },
-    extraReducers : (builder)=>{
+    extraReducers: (builder) => {
         builder
-            .addCase(loginUser.pending,(state)=>{
+            .addCase(loginUser.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(loginUser.fulfilled,(state,{ payload })=>{
+            .addCase(loginUser.fulfilled, (state, { payload }) => {
                 // console.log('here');
                 // console.log(payload);
                 state.status = 'logged in';
-                const { username,refreshToken,accessToken,email } = payload;
+                const { username, refreshToken, accessToken, email } = payload;
                 alert(`logged in as ${username}`);
                 state.email = email;
                 state.username = username;
                 state.accessToken = accessToken;
-                localStorage.setItem('devdarshan_jwt',refreshToken);
+                localStorage.setItem('devdarshan_jwt', refreshToken);
             })
-            .addCase(loginUser.rejected,(state)=>{
+            .addCase(loginUser.rejected, (state) => {
                 state.status = 'logged out';
                 alert('some error occured');
             })
-            .addCase(autologin.pending,(state,{ payload })=>{
+            .addCase(autologin.pending, (state, { payload }) => {
                 state.status = 'loading';
             })
-            .addCase(autologin.fulfilled,(state,{ payload })=>{
+            .addCase(autologin.fulfilled, (state, { payload }) => {
                 state.status = 'logged in';
-                const { username,accessToken,email } = payload;
+                const { username, accessToken, email } = payload;
                 state.email = email;
                 state.username = username;
                 state.accessToken = accessToken;
                 // localStorage.setItem('devdarshan_jwt',refreshToken);
             })
-            .addCase(autologin.rejected,(state)=>{
+            .addCase(autologin.rejected, (state) => {
                 state.status = 'logged out';
             })
-            .addCase(registerUser.fulfilled,()=>{
+            .addCase(registerUser.fulfilled, () => {
                 alert('user regitered');
             })
-            .addCase(registerUser.pending,(state)=>{
+            .addCase(registerUser.pending, (state) => {
                 state.status = 'loading';
             })
-            
+            .addCase(logoutUser.fulfilled, (state) => {
+                state.username = state.email = state.accessToken = '';
+                state.status = 'logged out';
+                alert('logged out user');
+            })
+
     }
 });
 

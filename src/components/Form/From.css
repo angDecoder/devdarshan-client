@@ -42,3 +42,13 @@
         font-size: 2rem;
     }
 }
+
+@media screen and ( min-width : 1300px ) {
+    .Form{
+        width: 60vw;
+    }
+    .Form__btn{
+        font-size: 1.6rem;
+        width: 12vw;
+    }
+}

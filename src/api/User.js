@@ -47,6 +47,14 @@ export const registerUserApi = async({ email,password,username })=>{
     }
 }
 
-export const logoutUserApi = ()=>{
+export const logoutUserApi = async ({email})=>{
+    try {
+        const res = await instance.post('/user/logout', {
+            email
+        });
 
+        return;
+    } catch (error) {
+        
+    }
 }
