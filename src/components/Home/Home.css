@@ -1,0 +1,133 @@
+#Home {
+    padding: 2em 0em;
+    /* overflow-y : scroll; */
+}
+
+#Home h1 {
+    color: orangered;
+    font-size: 2.2rem;
+    text-decoration: underline;
+    margin-bottom: 0.4em;
+    text-underline-offset: 4px;
+    text-align: center;
+}
+
+#Home>section {
+    margin-bottom: 4em;
+}
+
+#Home p {
+    color: rgb(132, 86, 0);
+}
+
+#Home__gallery {
+    width: 100vw;
+    /* overflow-x: hidden; */
+    position: relative;
+    z-index: 0;
+}
+
+#Home__slide {
+    display: flex;
+    /* transform: translateX(0%); */
+    transition: transform 300ms ease-in;
+    /* overflow-x: scroll; */
+}
+
+.slider-img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: orange;
+    width: 50px;
+    opacity: 0.5;
+}
+
+.slider-img:hover {
+    opacity: 0.8;
+}
+
+#slider-right {
+    right: 0;
+}
+
+#slider-left {
+    left: 0;
+    /* transform : rotate(180deg); */
+}
+
+.slide-img {
+    width: 100vw;
+    height: 60vh;
+    object-position: center;
+    object-fit: cover;
+}
+
+.slide-component {
+    position: relative;
+}
+
+.slide-info {
+    top: 100%;
+    right: 0;
+    left: 0;
+    text-align: center;
+
+}
+
+
+@media screen and (min-width : 480px) {
+    .slider-img {
+        width: 80px;
+    }
+
+    .slide-img {
+        width: 80vw;
+    }
+
+    #Home__gallery {
+        width: 80vw;
+    }
+
+    #Home section {
+        width: 80vw;
+        margin-inline: auto;
+        overflow: hidden;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width : 1300px) {
+    h3 {
+        font-size: 2rem;
+    }
+
+    .slide-img {
+        height: 80vh;
+    }
+
+    .slide-component:hover .slide-info {
+        background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+        opacity: 1;
+    }
+
+    .slide-info {
+        position: absolute;
+        /* background-color: black; */
+        inset : 0;
+        opacity: 0;
+        transition: opacity 200ms ease-in;
+    }
+
+    .slide-info > h3{
+        color : white;
+    }
+
+    #slide-info__p{
+        color : white;
+    }
+    
+}
